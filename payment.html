@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+</head>
+<body>
+
+    <h1>Payment</h1>
+
+    <form id="paymentForm">
+        <label>Card Number:</label>
+        <input type="text" id="cardNumber" required>
+
+        <br><br>
+
+        <button type="submit">Pay Now</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const cardNumber = document.getElementById("cardNumber").value;
+            const message = document.getElementById("message");
+
+            if (cardNumber.length >= 12) {
+                message.textContent = "Payment processed successfully!";
+            } else {
+                message.textContent = "Invalid card number.";
+            }
+        });
+    </script>
+
+</body>
+</html>
